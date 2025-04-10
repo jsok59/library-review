@@ -1,17 +1,21 @@
-function Book(title, author, pages, isRead = false) {
-    this.id = crypto.randomUUID();
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.isRead = isRead;
+class Book {
+    constructor(title, author, pages, isRead = false) {
+        this.id = crypto.randomUUID();
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.isRead = isRead;
+    }
+
+    info() {
+        if (this.isRead)
+            return `${this.title} by ${this.author}, ${this.pages} pages, read`
+        else
+            return `${this.title} by ${this.author}, ${this.pages} pages, not yet read`
+    }
 }
 
-Book.prototype.info = function () {
-    if (this.isRead)
-        return `${this.title} by ${this.author}, ${this.pages} pages, read`
-    else
-        return `${this.title} by ${this.author}, ${this.pages} pages, not yet read`
-}
+
 
 
 function addBookToLibrary(title, author, pages, isRead) {
